@@ -9,3 +9,13 @@ before_install:
 # Scripts (-- --coverage->exit the test with exit code)
 script: 
  - docker run -e CI=true kostaschikis/docker-react npm run test 
+# Deployment
+deploy: 
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-832045539600"
+  bucket_path: "docker-react"
+  on:
+    branch: master
