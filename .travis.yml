@@ -8,4 +8,4 @@ before_install:
   - docker build -t kostaschikis/docker-react -f Dockerfile.dev .  
 # Scripts (-- --coverage->exit the test with exit code)
 script: 
- - docker run kostaschikis/docker-react npm run test -- --coverage
+ - docker run -e CI=true kostaschikis/docker-react npm run test 
