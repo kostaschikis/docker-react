@@ -1,0 +1,11 @@
+# Superuser Permisions
+sudo: required
+# We need a copy of docker
+services: 
+  - docker
+# Build the image
+before_install:
+  - docker build -t kostaschikis/docker-react -f Dockerfile.dev .  
+# Scripts (-- --coverage->exit the test with exit code)
+script: 
+ - docker run kostaschikis/docker-react npm run test -- --coverage
